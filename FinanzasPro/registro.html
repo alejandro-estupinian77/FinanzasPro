@@ -1,5 +1,3 @@
-<!--Registro-->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,68 +8,75 @@
     <link rel="icon" href="images/money.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jersey+25&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+25&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <div style="display: grid; grid-template-columns: 2fr 1fr; height: 100vh;">
-        <!-- División para la imagen a la izquierda -->
         <div style="flex: 1; display: flex; justify-content: center; align-items: center; background-color: #f0f0f0;">
-          <img  class="imagenFondo" src="images/micheile-henderson-ZVprbBmT8QA-unsplash.jpg" alt="Logo de la empresa" style="max-width: 100%;">
+            <img class="imagenFondo" src="images/micheile-henderson-ZVprbBmT8QA-unsplash.jpg" alt="Logo de la empresa" style="max-width: 100%;">
         </div>
-        
-        <!-- División para el formulario de registro a la derecha -->
         <div style="display: flex; justify-content: center; align-items: center;">
-          <!-- Formulario de registro -->
-          <div class="registro-container" style="text-align: center;">
-            <div style="padding: 30px; border-radius: 5px; font-size: 24px; font-weight: bold;">
-              Registro
-            </div>
-      
-            <form id="formulario-registro" action="#" method="post" onsubmit="return validarFormulario()">
-              <div class="campo">
-                <label for="username">Nombre de usuario</label>
-                <input id="regNombreUser" type="text" name="username" placeholder="Ingrese su nombre de usuario" required>
-              </div>
-              
-              <div class="campo">
-                <label for="email">Correo electrónico</label>
-                <input id="regCorreoUser" type="email" name="email" placeholder="Ingrese su correo electrónico"  required>
-              </div>
-              
-              
-              <div class="campo">
-                <label for="password">Contraseña</label>
-                <input id="regContraUser" type="password" name="password" placeholder="Ingrese su contraseña" required>
-              </div>
-              
-              
-              <div class="campo">
-                <label for="confirm_password">Confirmar contraseña</label>
-                <input type="password" name="confirm_password" placeholder="Confirme su contraseña" required>
-              </div>
-
-              <button class="botonRegistro" type="submit">Registrarse</button>
-
-              <div class="opciones-registro">
-                <div class="boton-registro">
-                  <button id="google-login" class="">
-                    Ingresar con Gmail
-                    <img src="images/7089163_gmail_google_icon.png" alt="">
-                  </button>
+            <div class="registro-container" style="text-align: center;">
+                <div style="padding: 30px; border-radius: 5px; font-size: 24px; font-weight: bold;">
+                    Registro
                 </div>
-
-                <div class="boton-registro">
-                  <button id="microsoft-login">
-                    Ingresar con Outlook
-                    <img src="images/6296671_microsoft_office_office365_outlook_icon.png" alt="">
-                  </button>
-                </div> 
-              </div>
-            </form>
-          </div>
+                <form id="formulario-registro" action="#" method="post">
+                    <div class="campo">
+                        <label for="username">Nombre de usuario</label>
+                        <input id="regNombreUser" type="text" name="username" placeholder="Ingrese su nombre de usuario" required>
+                    </div>
+                    <div class="campo">
+                        <label for="email">Correo electrónico</label>
+                        <input id="regCorreoUser" type="email" name="email" placeholder="Ingrese su correo electrónico" required>
+                    </div>
+                    <div class="campo">
+                        <label for="password">Contraseña</label>
+                        <input id="regContraUser" type="password" name="password" placeholder="Ingrese su contraseña" required>
+                    </div>
+                    <div class="campo">
+                        <label for="confirm_password">Confirmar contraseña</label>
+                        <input id="regConfContraUser" type="password" name="confirm_password" placeholder="Confirme su contraseña" required>
+                    </div>
+                    <button class="botonRegistro" type="submit">Registrarse</button>
+                    <div class="opciones-registro">
+                        <div class="boton-registro">
+                            <button id="google-login" type="button">
+                                Ingresar con Gmail
+                                <img src="images/7089163_gmail_google_icon.png" alt="">
+                            </button>
+                        </div>
+                        <div class="boton-registro">
+                            <button id="microsoft-login" type="button">
+                                Ingresar con Outlook
+                                <img src="images/6296671_microsoft_office_office365_outlook_icon.png" alt="">
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-    
-    
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Ingrese su información</h2>
+            <form id="modal-form">
+                <div class="campo">
+                    <label for="modalNombre">Nombre</label>
+                    <input id="modalNombre" type="text" name="modalNombre" placeholder="Ingrese su nombre" required>
+                </div>
+                <div class="campo">
+                    <label for="modalCorreo">Correo electrónico</label>
+                    <input id="modalCorreo" type="email" name="modalCorreo" placeholder="Ingrese su correo electrónico" required>
+                </div>
+                <button type="submit">Ingresar</button>
+            </form>
+        </div>
+    </div>
+    <script src="js/registro.js"></script>
 </body>
 </html>
+
+ <!-- arreglar lo del registro.js -->
