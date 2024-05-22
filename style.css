@@ -1,0 +1,725 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #121212;
+}
+
+h3, h1, p{
+    text-align: center;
+}
+
+*{
+    color: #fff;
+    font-family: "Poppins", sans-serif;
+}
+
+input,textarea{
+    font-family: "Poppins", sans-serif;
+}
+
+input:focus{
+    outline: none;
+}
+
+/*Estilos LogIn*/
+
+
+.login{
+    height: 100vh;
+    width: 100%;
+    background-color: #121212;
+    font-family: "Poppins", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.login .contenidoTexto{
+    background-color: #282828;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    height: 500px;
+    padding: 50px;
+    border-radius: 30px;
+}
+
+.login .contenidoTexto input[type="button"]{
+    font-family: "Poppins", sans-serif;
+}
+
+.login .contenidoTexto .formularioLogIn{
+    width: 100%;
+}
+
+.login .contenidoTexto .formularioLogIn .formulario{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.login .contenidoTexto .formularioLogIn .formulario .campo{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+}
+
+.login .contenidoTexto .formularioLogIn .formulario .campo input{
+    background-color: #121212;
+    border: none;
+    padding: 5px;
+    border-radius: 30px;
+    padding-left: 12px;
+}
+
+.login .contenidoTexto .formularioLogIn .formulario .campo input:focus{
+    outline: none;
+}
+
+input[type="button"]{
+    border: none;
+    border-radius: 30px;
+    font-size: 15px;
+    margin-top: 30px;
+    background-color: #121212;
+    padding: 5px;
+    cursor: pointer;
+    transition: color, 0.5 ease-in-out;
+}
+
+input[type="button"]:hover{
+    background-color: rgb(30, 144, 255);
+}
+
+.encabezado{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.encabezado img{
+    height: 50px;
+    width: 50px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    filter: grayscale(100%) invert(100%)
+}
+
+
+/*Inicio*/
+
+.navegacionInicio{
+    display: flex;
+    justify-content: space-between;
+    padding: 50px;
+}
+
+.navegacionInicio h1{
+    font-size: 35px;
+    margin: 0;
+}
+
+.navegacionInicio .botones{
+    display: flex;
+    gap: 20px;
+}
+
+.boton{
+    text-decoration: none;
+    background-color: #282828;
+    padding: 20px;
+    border-radius: 10px;
+    transition: color, 0.5 ease-in-out;
+}
+
+.boton:hover{
+    background-color: rgb(30, 144, 255);
+}
+
+
+.section1{
+    height: 500px;
+    width: 100%;
+    background-image: url(images/northfolk-Ok76F6yW2iA-unsplash.jpg);
+    background-size: cover;
+}
+
+.busqueda{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    padding-left: 100px;
+    margin-top: 50px;
+    width: 50%;
+}
+
+.busqueda h3{
+    font-size: 40px;
+    margin: 0;
+}
+
+.busqueda .botones{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.busqueda .botones .botonCategoria{
+    background-color: #282828;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    width: 100px;
+    border-radius: 10px;
+}
+
+.busqueda .botones .botonCategoria:focus{
+    background-color: rgb(30, 144, 255);
+}
+
+.busqueda .campoBusqueda{
+    display: grid;
+    grid-template-columns: 7fr 1fr;
+    gap: 10px;
+}
+
+.busqueda .campoBusqueda .buscar{
+    background-color: #282828;
+    border: none;
+    border-radius: 30px;
+    padding: 10px;
+}
+
+.busqueda .campoBusqueda .botonBuscar{
+    background-color: #282828;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 0 10px;
+    transition: 0.5, ease-in-out;
+}
+
+.busqueda .campoBusqueda .botonBuscar:hover{
+    background-color: rgb(30, 144, 255);
+}
+
+.resultadosBusqueda{
+    margin-top:30px;
+    margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-left: 100px;
+    gap: 100px;
+}
+
+.resultadosBusqueda h3{
+    font-size: 40px;
+}
+
+.resultadosBusqueda .contenidoDerecha{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 50px;
+}
+
+.resultadosBusqueda .contenidoDerecha img{
+    height: 100%;
+    width: 100%;
+}
+
+.resultadosBusqueda .cartaResultado{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    background-color: #282828;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.resultadosBusqueda .cartaResultado .detalles{
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.resultadosBusqueda .cartaResultado .contenidoTexto{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.resultadosBusqueda .cartaResultado .contenidoTexto h4{
+    font-size: 20px;
+}
+
+.resultadosBusqueda .cartaResultado .contenidoTexto button{
+    background-color: #121212;
+    border: none;
+    cursor: pointer;
+    padding: 0 20px;
+    border-radius: 30px;
+}
+
+.resultadosBusqueda .cartaResultado .contenidoTexto button:hover{
+    background-color: rgb(30, 144, 255);
+}
+
+.resultadosBusqueda .cartaResultado .contenidoTexto *{
+    text-align: left;
+}
+
+.resultadosBusqueda .contenidoIzquierda{
+    display: flex;
+    background-color: #282828;
+    padding: 20px;
+    width: 50%;
+    height: 50%;
+    border-radius: 30px;
+}
+
+.resultadosBusqueda .contenidoIzquierda *{
+    text-align: left;
+    
+}
+
+.resultadosBusqueda .contenidoIzquierda .texto{
+    display: flex;
+    justify-content: space-between;
+}
+
+.resultadosBusqueda .contenidoIzquierda .bold{
+    font-weight: 500;
+}
+
+.resultadosBusqueda .contenidoIzquierda .botonPagar{
+    background-color: #121212;
+    margin-top: 40px;
+    width: 100%;
+    text-align: center;
+    border: none;
+    padding: 10px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: color, 0.5 ease-in-out;
+}
+
+.resultadosBusqueda .contenidoIzquierda .botonPagar:hover{
+    background-color: rgb(30, 144, 255);
+}
+
+/*App*/
+
+.contenidoApp{
+    display: grid;
+    grid-template-columns: 1fr 7fr;
+    height: 100%;
+}
+
+.contenidoApp .navegacionLateral .navegacion{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:50px;
+    padding: 10px;
+    padding-top: 50px;
+    background-color: #282828;
+    
+}
+
+.contenidoApp .navegacionLateral .boton-app{
+    background-color: #121212;
+    border: none;
+    padding: 20px 22px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.clicked{
+    background-color: rgb(30, 144, 255);
+}
+
+.contenidoApp .navegacionLateral button img{
+    height: 30px;
+    width: 30px;
+    filter: grayscale(100%) invert(100%);
+}
+
+.contenidoApp .contenido .encabezado-app{
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #282828;
+}
+
+.contenidoApp .contenido .encabezado-app img{
+    height: 40px;
+    width: 40px;
+    filter: grayscale(100%) invert(100%);
+}
+
+.contenidoApp .contenido .encabezado-app button{
+    background-color: #121212;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: color, 0.5 ease-in-out;
+}
+
+.contenidoApp .contenido .encabezado-app button:hover{
+    background-color: rgb(30, 144, 255);
+
+}
+
+
+.contenidoApp .contenido .encabezado-app .barra-usuario{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+
+/*Calendario*/
+
+.registro-pagos{
+    padding: 30px;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 5fr 3fr;
+    gap: 80px;
+}
+
+.registro-pagos .historial-pagos{
+    background-color: #282828;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.registro-pagos .historial-pagos .encabezado-pagos{
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.registro-pagos .historial-pagos img{
+    width: 30px;
+    height: 30px;
+}
+
+.registro-pagos .historial-pagos .encabezado-pagos h4{
+    font-size: 25px;
+}
+
+.registro-pagos .historial-pagos .pagos{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.registro-pagos .historial-pagos .pago{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #121212;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.registro-pagos .historial-pagos .pagos button{
+    background-color: #121212;
+    border: none;
+    padding: 10px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color, 0.5 ease-in-out;
+}
+
+.registro-pagos .historial-pagos .pagos button:hover{
+    background-color: rgb(30, 144, 255);
+}
+
+
+
+.registro-pagos .historial-pagos .pago .contenido{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.registro-pagos .historial-pagos .pago .contenido img{
+    filter: grayscale(100%) invert(100%);
+}
+
+.registro-pagos .historial-pagos .pago button{
+    background-color: #282828;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    transition: color, 0.5 ease-in-out;
+}
+
+.registro-pagos .historial-pagos .pago button:hover{
+    background-color: rgb(30, 144, 255);
+}
+
+
+.calendar-container {
+    width: 100%;
+    height: 75%;
+    padding: 20px;
+    background-color: #282828;
+    border-radius: 10px;
+}
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.calendar-header span {
+    font-size: 24px;
+    font-weight: bold;
+}
+.calendar-header button {
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+.calendar-body {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1px;
+    height: 75%;
+}
+.calendar-day {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 5px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    position: relative;
+    background-color: #282828;
+    cursor: pointer;
+}
+
+.calendar-day:hover{
+    background-color: rgb(30, 144, 255);
+}
+
+.calendar-day-header {
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    font-weight: bold;
+    background-color: #282828;
+}
+
+.contenidoIzquierda-pagos .pagos-pendientes-contenedor{
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 0 30px;
+}
+
+.pagos-pendientes{
+    display: flex;
+    gap: 20px;
+}
+
+.pagos-pendientes .pago-pendiente{
+    display: flex;
+    flex-direction: column;
+    background-color: #282828;
+    border-radius: 10px;
+    padding: 5px 10px;
+}
+
+.pagos-pendientes .pago-pendiente .pie-pago{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pagos-pendientes .pago-pendiente .pie-pago button{
+    border: none;
+    background-color: #121212;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.pagos-pendientes .pago-pendiente .pie-pago button:hover{
+    background-color: rgb(30, 144, 255);
+}
+
+
+/*Registro*/
+
+.imagenFondo{
+    height: 100%;
+    width: 100%;
+}
+
+.botonRegistro{
+    background-color: #282828;  
+    color: white; 
+    width: 100%;
+    padding: 12px 150px; 
+    border: none; 
+    border-radius: 5px;
+    cursor: pointer;
+    transition: color, 0.5 ease-in-out;
+    margin: 25px 0;
+}
+
+.botonRegistro:hover{
+    background-color: rgb(30, 144, 255);
+}
+
+#formulario-registro .campo{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+#formulario-registro .campo input{
+    background-color: #282828;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 10px;
+}
+
+.opciones-registro{
+    display: flex;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.opciones-registro button{
+    background-color: #282828;
+    border-radius: 10px;
+    padding:10px 12px;
+    border:none;
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+}
+
+.opciones-registro button:hover{
+    background-color: rgb(30, 144, 255);
+}
+
+.opciones-registro button img{
+    height: 30px;
+    width: 30px;
+}
+
+
+/*Modal*/
+
+#event-modal{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position:fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    background-color: rgba(18,18,18,0.8);
+}
+
+.modal .contenido-modal{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #282828;
+    padding: 50px;
+    border-radius: 10px;
+    width: 300px;
+}
+
+.modal .contenido-modal .campo{
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+}
+
+.modal .contenido-modal .campo input, textarea{
+    background-color: #121212;
+    border: none;
+    padding: 8px 10px;
+    border-radius: 10px;
+}
+
+.modal .contenido-modal .campo input, textarea:focus{
+    outline: none;
+}
+
+.modal .contenido-modal .botones{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.modal .contenido-modal .botones button{
+    background-color: #121212;
+    border: none;
+    padding: 10px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.modal .contenido-modal .botones button:hover{
+    background-color: rgb(30, 144, 255);
+}
+
+
+/*Etiqueta*/
+.etiqueta{
+    background-color: #121212;
+    border-radius: 10px;
+    font-size: 15px;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
