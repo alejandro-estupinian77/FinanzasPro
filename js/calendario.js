@@ -10,10 +10,11 @@ const contenedorPagos = document.getElementsByClassName('pagos')[0];
 const botonExportarHistorial = document.getElementsByClassName('exportar-pagos');
 
 const noPagos = document.getElementsByClassName('noPagos')[0];
-
+const contenedorPagosIndividuales = document.getElementsByClassName('contenedor-pagos')[0];
 
 let events = {};
-let transacciones = [];
+var transacciones = [];
+
 
 //Inputs
 const descripcion = document.getElementById('descripcion');
@@ -37,13 +38,17 @@ botonAgregar.addEventListener('click', function(e){
         "hora":`${hora.value}`
     }
 
+    
     transacciones.push(transaccion);
+    
+    console.log(transacciones);
 
     const contenidoTrans = document.createElement('p');
     contenidoTrans.textContent = `${descripcion.value}`;
     contenidoTrans.classList.add('etiqueta');
   
     diaSeleccionado.appendChild(contenidoTrans);
+    verificarListaTransacciones();
     cerrarModal();
 
 });
@@ -144,11 +149,21 @@ function verificarListaTransacciones(){
     if (transacciones == 0){
         noPagos.textContent = "No hay pagos registrados";    
     }else{
+        noPagos.style.display = 'none';
+        contenedorPagosIndividuales.innerHTML = '';
+        var i = 0;
         transacciones.forEach(transaccion =>{
+            
             const contenedorTrans = document.createElement('div');
             const imagenTrans = document.createElement('img');
             const textoTrans = document.createElement('h4');
             const botonTrans = document.createElement('button');
+            const contenedorTexto = document.createElement('div');
+
+            //Atributos del contenedor Texto
+            contenedorTexto.classList.add('contenido');
+            contenedorTexto.appendChild(imagenTrans);
+            contenedorTexto.appendChild(textoTrans);
 
             //Atributos del contenedor
             contenedorTrans.classList.add('pago');
@@ -156,13 +171,23 @@ function verificarListaTransacciones(){
             //Atributos de la imagen
             imagenTrans.src = "images/172506_money_icon.png"
 
+            //Atributos del h5
+            textoTrans.textContent = transaccion.descripcion;
+
+            //Atributos botón
+            botonTrans.textContent = "Detalles";
+            botonTrans.classList.add('boton-detalles')
+            botonTrans.id = `${i}`;
+
             //Agregar elementos al div
-            contenedorTrans.appendChild(imagenTrans);
-            contenedorTrans.appendChild(textoTrans);
+            contenedorTrans.appendChild(contenedorTexto);
             contenedorTrans.appendChild(botonTrans);
 
-            contenedorPagos.appendChild(contenedorTrans);
+            contenedorPagosIndividuales.appendChild(contenedorTrans);
             
+            contenedorPagos.appendChild(contenedorPagosIndividuales);
+
+            i++;
         });
     }
 }
@@ -172,6 +197,7 @@ function alertaExportacion(){
         alert("No hay pagos para realizar la exportación");
     }
 }
+
 
 
 

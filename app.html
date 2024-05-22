@@ -12,8 +12,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Jersey+25&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!--Modal-->
-    
+    <!--Modal agregar transacción-->
+
     <div id="event-modal" class="modal">
         <div class="contenido-modal">
             <h3>Datos de la transacción</h3>
@@ -46,15 +46,67 @@
         </div>
     </div>
 
-    
+    <!--Modal detalles de transacción-->
+
+    <div class="modal-detalles">
+
+        <div class="contenido-modal-detalles">
+
+            <h3>
+                Detalles de la transacción
+            </h3>
+
+            <div class="campo-desc">
+                <h4>
+                    Descripción:
+                </h4>
+                <p class="descripcion-detalles">
+
+                </p>
+            </div>
+
+            <div class="campo-desc">
+                <h4>
+                    Categoría:
+                </h4>
+                <p class="categoria-detalles">
+                    
+                </p>
+            </div>
+
+            <div class="campo-desc">
+                <h4>
+                    Monto:
+                </h4>
+                <p class="monto-detalles">
+                    
+                </p>
+            </div>
+
+            <div class="campo-desc">
+                <h4>
+                    Hora de pago:
+                </h4>
+                <p class="hora-detalles">
+                    
+                </p>
+            </div>
+
+            <button class="cerrar-detalles">Cerrar</button>
+
+        </div>
+
+
+    </div>
+
     <!--CONTENIDO PAGINA-->
     <div class="contenidoApp">
         <div class="navegacionLateral">
             <nav class="navegacion">
                 <button id="boton-registroPagos" class="boton-app"><img src="images/3533402_business_management_plan_project_report_icon.png" alt=""></button>
                 <button id="boton-ingresosGastos" class="boton-app"><img src="images/1737376_dollar_money_sign_icon.png" alt=""></button>
-                <button id="boton-funcionalidad3" class="boton-app"><img src="images/8324247_ui_essential_app_wallet_pay_icon.png" alt=""></button>
-                <button id="boton-funcionalidad4" class="boton-app"><img src="images/2124299_app_document_report_essential_icon.png" alt=""></button>
+                <button id="boton-seguimiento" class="boton-app"><img src="images/8324247_ui_essential_app_wallet_pay_icon.png" alt=""></button>
+                <button id="boton-planificacion" class="boton-app"><img src="images/2124299_app_document_report_essential_icon.png" alt=""></button>
             </nav>
         </div>
 
@@ -90,18 +142,33 @@
                     
                     <div class="pagos">
 
+                        <div class="contenedor-pagos">
+
+                        </div>
+
                         <p class="noPagos"></p>
                 
                         <button class="exportar-pagos" onclick="alertaExportacion()">Exportar historial</button>
                     </div>                    
                 </div>
             </div>
+
+            <div class="ingresos-pagos">
+
+            </div>
+
+            <div class="seguimiento-presupuesto">
+
+            </div>
+
+            <div class="planificacion-reportes">
+
+            </div>
         </div>
     </div>
     
-    <script src="js/botonApp.js"></script>
+    <script src="js/manejoVentanas.js"></script>
     <script src="js/calendario.js"></script>
-    <script src="js/ocultar.js"></script>
-    <script src="js/agregarDesc.js"></script>
+    <script src="js/detallesTrans.js"></script>
 </body>
 </html>

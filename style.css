@@ -339,6 +339,12 @@ input[type="button"]:hover{
     
 }
 
+
+.boton-app:first-of-type{
+    background-color: rgb(30, 144, 255);
+
+}
+
 .contenidoApp .navegacionLateral .boton-app{
     background-color: #121212;
     border: none;
@@ -464,12 +470,19 @@ input[type="button"]:hover{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
 }
 
 .registro-pagos .historial-pagos .pago .contenido img{
     filter: grayscale(100%) invert(100%);
 }
+
+.contenedor-pagos{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 
 .registro-pagos .historial-pagos .pago button{
     background-color: #282828;
@@ -713,6 +726,46 @@ input[type="button"]:hover{
     border-radius: 10px;
     font-size: 15px;
     width: 100%;
+}
+
+/*Modal detalles*/
+
+.modal-detalles{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    background-color: rgba(18,18,18,0.5);
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.modal-detalles .contenido-modal-detalles{
+    background-color: #121212;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.modal-detalles .contenido-modal-detalles .campo-desc{
+    display: flex;
+    gap: 10px;
+}
+
+.modal-detalles .contenido-modal-detalles .cerrar-detalles{
+    background-color: #282828;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: color, 0.5 ease-in-out ;
+}
+
+.modal-detalles .contenido-modal-detalles .cerrar-detalles:hover{
+    background-color: rgb(30, 144, 255);
 }
 
 
