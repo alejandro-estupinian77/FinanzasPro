@@ -2,7 +2,71 @@ let currentMonth = new Date().getMonth();
 let currentYear = new Date().getFullYear();
 const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 const dayNames = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+const botonCerrar = document.getElementsByClassName('boton-cerrar')[0];
+const modal = document.getElementById('event-modal');
+const botonAgregar = document.getElementById('boton-agregar');
+
+const contenedorPagos = document.getElementsByClassName('pagos')[0];
+const botonExportarHistorial = document.getElementsByClassName('exportar-pagos');
+
+const noPagos = document.getElementsByClassName('noPagos')[0];
+const contenedorPagosIndividuales = document.getElementsByClassName('contenedor-pagos')[0];
+
 let events = {};
+var transacciones = [];
+
+
+//Inputs
+const descripcion = document.getElementById('descripcion');
+const categoria = document.getElementById('categoria');
+const monto = document.getElementById('monto');
+const hora = document.getElementById('hora');
+
+//Cerrar modal con botón
+botonCerrar.addEventListener('click', function(e) {
+    e.preventDefault();
+    cerrarModal();
+});
+
+botonAgregar.addEventListener('click', function(e){
+    e.preventDefault();
+    
+    let transaccion = {
+        "descripcion":`${descripcion.value}`,
+        "categoria":`${categoria.value}`,
+        "monto":`${monto.value}`,
+        "hora":`${hora.value}`
+    }
+
+    
+    transacciones.push(transaccion);
+    
+    console.log(transacciones);
+
+    const contenidoTrans = document.createElement('p');
+    contenidoTrans.textContent = `${descripcion.value}`;
+    contenidoTrans.classList.add('etiqueta');
+  
+    diaSeleccionado.appendChild(contenidoTrans);
+    verificarListaTransacciones();
+    cerrarModal();
+
+});
+
+//Abrir y cerrar modal
+function abrirModal() {
+    //Reestablecer todos los campos a vacío
+    descripcion.value = '';
+    categoria.value = '';
+    monto.value = '';
+    hora.value = '';
+
+    modal.style.display = 'flex';
+}
+
+function cerrarModal() {
+    modal.style.display = 'none';
+}
 
 function renderCalendar() {
     const daysElement = document.getElementById('calendar-days');
@@ -30,7 +94,6 @@ function renderCalendar() {
         const dayElement = document.createElement('div');
         dayElement.classList.add('calendar-day');
         dayElement.textContent = day;
-        dayElement.onclick = () => openModal(day);
         daysElement.appendChild(dayElement);
 
         const eventDate = `${currentYear}-${currentMonth + 1}-${day}`;
@@ -42,6 +105,12 @@ function renderCalendar() {
                 dayElement.appendChild(eventElement);
             });
         }
+
+        // Añadir event listener para abrir el modal
+        dayElement.addEventListener('click', function() {
+            diaSeleccionado = this;
+            abrirModal();
+        });
     }
 }
 
@@ -65,4 +134,74 @@ function nextMonth() {
     renderCalendar();
 }
 
-document.addEventListener('DOMContentLoaded', renderCalendar);
+
+// Inicializar el calendario al cargar la página
+document.addEventListener('DOMContentLoaded', function() {
+    renderCalendar();
+    verificarListaTransacciones();
+
+    document.getElementById('prev-month').addEventListener('click', previousMonth);
+    document.getElementById('next-month').addEventListener('click', nextMonth);
+});
+
+//Historial de pagos 
+function verificarListaTransacciones(){
+    if (transacciones == 0){
+        noPagos.textContent = "No hay pagos registrados";    
+    }else{
+        noPagos.style.display = 'none';
+        contenedorPagosIndividuales.innerHTML = '';
+        var i = 0;
+        transacciones.forEach(transaccion =>{
+            
+            const contenedorTrans = document.createElement('div');
+            const imagenTrans = document.createElement('img');
+            const textoTrans = document.createElement('h4');
+            const botonTrans = document.createElement('button');
+            const contenedorTexto = document.createElement('div');
+
+            //Atributos del contenedor Texto
+            contenedorTexto.classList.add('contenido');
+            contenedorTexto.appendChild(imagenTrans);
+            contenedorTexto.appendChild(textoTrans);
+
+            //Atributos del contenedor
+            contenedorTrans.classList.add('pago');
+
+            //Atributos de la imagen
+            imagenTrans.src = "images/172506_money_icon.png"
+
+            //Atributos del h5
+            textoTrans.textContent = transaccion.descripcion;
+
+            //Atributos botón
+            botonTrans.textContent = "Detalles";
+            botonTrans.classList.add('boton-detalles')
+            botonTrans.id = `${i}`;
+
+            //Agregar elementos al div
+            contenedorTrans.appendChild(contenedorTexto);
+            contenedorTrans.appendChild(botonTrans);
+
+            contenedorPagosIndividuales.appendChild(contenedorTrans);
+            
+            contenedorPagos.appendChild(contenedorPagosIndividuales);
+
+            i++;
+        });
+    }
+}
+
+function alertaExportacion(){
+    if(transacciones.length == 0){
+        alert("No hay pagos para realizar la exportación");
+    }
+}
+
+
+
+
+
+
+
+
