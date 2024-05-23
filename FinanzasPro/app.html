@@ -158,36 +158,36 @@
             </div>
 
             <div class="seguimiento-presupuesto">
-                <h2>Seguimiento de Presupuesto</h2>
                 <div class="presupuesto-container">
-                    <div class="presupuesto-config">
-                        <label for="presupuesto-mensual">Presupuesto Mensual:</label>
-                        <input type="number" id="presupuesto-mensual" placeholder="Ingrese su presupuesto mensual">
-                        <button onclick="establecerPresupuesto()">Establecer Presupuesto</button>
-                    </div>
-                    <div class="resumen-presupuesto">
-                        <h3>Resumen del Presupuesto</h3>
-                        <p>Presupuesto Mensual: <span id="mostrar-presupuesto">0.00</span></p>
-                        <p>Gastos Totales: <span id="mostrar-gastos">0.00</span></p>
-                        <p>Ingresos Totales: <span id="mostrar-ingresos">0.00</span></p>
-                        <p>Saldo Restante: <span id="mostrar-saldo">0.00</span></p>
-                    </div>
-                    <div class="registro-transacciones">
-                        <h3>Registrar Transacción</h3>
-                        <form id="form-registro-transaccion">
-                            <label for="tipo-transaccion">Tipo:</label>
-                            <select id="tipo-transaccion">
-                                <option value="ingreso">Ingreso</option>
-                                <option value="gasto">Gasto</option>
-                            </select>
-                            <label for="monto-transaccion">Monto:</label>
-                            <input type="number" id="monto-transaccion" required>
-                            <button type="submit">Registrar</button>
-                        </form>
-                    </div>
+                    <div class="presupuesto-box"> <!-- Nuevo contenedor con fondo de color y margen inferior -->
+                        <div class="presupuesto-config">
+                            <label for="presupuesto-mensual">Presupuesto Mensual:</label>
+                            <input type="number" id="presupuesto-mensual" placeholder="Ingrese su presupuesto mensual">
+                            <button onclick="establecerPresupuesto()">Establecer Presupuesto</button>
+                        </div>
+                        <div class="resumen-presupuesto">
+                            <h3>Resumen del Presupuesto</h3>
+                            <p>Presupuesto Mensual: <span id="mostrar-presupuesto">0.00</span></p>
+                            <p>Gastos Totales: <span id="mostrar-gastos">0.00</span></p>
+                            <p>Ingresos Totales: <span id="mostrar-ingresos">0.00</span></p>
+                            <p>Saldo Restante: <span id="mostrar-saldo">0.00</span></p>
+                        </div>
+                        <div class="registro-transacciones">
+                            <h3>Registrar Transacción</h3>
+                            <form id="form-registro-transaccion">
+                                <label for="tipo-transaccion">Tipo:</label>
+                                <select id="tipo-transaccion">
+                                    <option value="ingreso">Ingreso</option>
+                                    <option value="gasto">Gasto</option>
+                                </select>
+                                <label for="monto-transaccion">Monto:</label>
+                                <input type="number" id="monto-transaccion" required>
+                                <button type="submit">Registrar</button>
+                            </form>
+                        </div>
+                    </div> <!-- Cierre del nuevo contenedor -->
                     <div class="visualizacion-presupuesto">
                         <h3>Visualización del Presupuesto</h3>
-                        <canvas id="grafico-presupuesto"></canvas>
                     </div>
                 </div>
             </div>            

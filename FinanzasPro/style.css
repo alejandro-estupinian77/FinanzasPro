@@ -844,7 +844,7 @@ input[type="button"]:hover{
 
 /* Estilo para los números */
 .seguimiento-presupuesto span {
-    color: #f2f0f0; /* Color negro para los números */
+    color: #f2f0f0; /* Color blanco para los números */
 }
 
 /* Estilo para los botones */
@@ -872,6 +872,7 @@ button:hover {
 .presupuesto-config,
 .registro-transacciones {
     margin-bottom: 20px;
+
 }
 
 .presupuesto-config label,
@@ -900,6 +901,12 @@ button:hover {
     height: 400px;
 }
 
+.presupuesto-box {
+    background-color: #282828;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 8px; /* Añadimos bordes redondeados */
+}
 
 
 
