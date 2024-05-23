@@ -842,14 +842,26 @@ input[type="button"]:hover{
     margin-right: 10px; /* Espacio entre la imagen y el texto */
 }
 
-.seguimiento-presupuesto {
-    padding: 20px;
-    background-color: #100f0f;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(11, 11, 11, 0.1);
-    max-width: 800px;
-    margin: auto;
+/* Estilo para los números */
+.seguimiento-presupuesto span {
+    color: #f2f0f0; /* Color negro para los números */
 }
+
+/* Estilo para los botones */
+button {
+    color: #000; /* Texto negro en los botones */
+    background-color: #fff; /* Fondo blanco en los botones */
+    border: 1px solid #000; /* Borde negro en los botones */
+    border-radius: 4px; /* Bordes redondeados en los botones */
+    padding: 8px 16px; /* Espacio interno en los botones */
+    cursor: pointer; /* Cambiar cursor al pasar sobre los botones */
+}
+
+button:hover {
+    background-color: #000; /* Cambiar color de fondo al pasar sobre los botones */
+    color: #fff; /* Cambiar color del texto al pasar sobre los botones */
+}
+
 
 .presupuesto-container {
     display: flex;
