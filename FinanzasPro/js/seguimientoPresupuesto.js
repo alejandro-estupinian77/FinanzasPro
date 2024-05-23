@@ -2,9 +2,13 @@
 let presupuestoMensual = 0;
 let totalGastos = 0;
 let totalIngresos = 0;
-let chartInstance;
+let chartData;
+let ctx;
 
 document.addEventListener('DOMContentLoaded', () => {
+    ctx = document.getElementById('grafico-presupuesto').getContext('2d');
+    inicializarGrafico();
+
     // Agregar event listener para el formulario de registro de transacción
     document.getElementById('form-registro-transaccion').addEventListener('submit', function(e) {
         e.preventDefault();
@@ -14,6 +18,41 @@ document.addEventListener('DOMContentLoaded', () => {
     // Establecer presupuesto predeterminado al cargar la página
     establecerPresupuesto();
 });
+
+function inicializarGrafico() {
+    chartData = {
+        labels: ['Presupuesto Mensual', 'Gastos Totales', 'Ingresos Totales'],
+        datasets: [{
+            label: 'Resumen del Presupuesto',
+            backgroundColor: ['#ff6384', '#36a2eb', '#cc65fe'],
+            data: [presupuestoMensual, totalGastos, totalIngresos]
+        }]
+    };
+
+    ctx.fillStyle = chartData.datasets[0].backgroundColor[0];
+    ctx.fillRect(0, 0, 200, chartData.datasets[0].data[0] * 2);
+    
+    ctx.fillStyle = chartData.datasets[0].backgroundColor[1];
+    ctx.fillRect(200, 0, 200, chartData.datasets[0].data[1] * 2);
+    
+    ctx.fillStyle = chartData.datasets[0].backgroundColor[2];
+    ctx.fillRect(400, 0, 200, chartData.datasets[0].data[2] * 2);
+}
+
+function actualizarGrafico() {
+    ctx.clearRect(0, 0, 600, 400);
+    
+    chartData.datasets[0].data = [presupuestoMensual, totalGastos, totalIngresos];
+    
+    ctx.fillStyle = chartData.datasets[0].backgroundColor[0];
+    ctx.fillRect(0, 0, 200, chartData.datasets[0].data[0] * 2);
+    
+    ctx.fillStyle = chartData.datasets[0].backgroundColor[1];
+    ctx.fillRect(200, 0, 200, chartData.datasets[0].data[1] * 2);
+    
+    ctx.fillStyle = chartData.datasets[0].backgroundColor[2];
+    ctx.fillRect(400, 0, 200, chartData.datasets[0].data[2] * 2);
+}
 
 function establecerPresupuesto() {
     const inputPresupuesto = document.getElementById('presupuesto-mensual').value;
@@ -42,28 +81,7 @@ function actualizarResumen() {
     actualizarGrafico();
 }
 
-function actualizarGrafico() {
-    const ctx = document.getElementById('grafico-presupuesto').getContext('2d');
 
-    if (chartInstance) {
-        chartInstance.destroy();
-    }
-
-    chartInstance = new Chart(ctx, {
-        type: 'doughnut',
-        data: {
-            labels: ['Gastos', 'Ingresos', 'Saldo Restante'],
-            datasets: [{
-                data: [totalGastos, totalIngresos, presupuestoMensual - totalGastos + totalIngresos],
-                backgroundColor: ['#ff6384', '#36a2eb', '#cc65fe'],
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-        }
-    });
-}
 
 
 

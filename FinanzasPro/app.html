@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jersey+25&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!--Modal agregar transacción-->
@@ -159,7 +160,7 @@
 
             <div class="seguimiento-presupuesto">
                 <div class="presupuesto-container">
-                    <div class="presupuesto-box"> <!-- Nuevo contenedor con fondo de color y margen inferior -->
+                    <div class="presupuesto-box">
                         <div class="presupuesto-config">
                             <label for="presupuesto-mensual">Presupuesto Mensual:</label>
                             <input type="number" id="presupuesto-mensual" placeholder="Ingrese su presupuesto mensual">
@@ -185,12 +186,13 @@
                                 <button type="submit">Registrar</button>
                             </form>
                         </div>
-                    </div> <!-- Cierre del nuevo contenedor -->
-                    <div class="visualizacion-presupuesto">
-                        <h3>Visualización del Presupuesto</h3>
                     </div>
                 </div>
-            </div>            
+                <div class="visualizacion-presupuesto">
+                    <h3>Visualización del Presupuesto</h3>
+                    <canvas id="grafico-presupuesto" width="600" height="400"></canvas>
+                </div>
+            </div>                 
 
             <div class="planificacion-reportes">
 

@@ -849,8 +849,8 @@ input[type="button"]:hover{
 
 /* Estilo para los botones */
 button {
-    color: #000; /* Texto negro en los botones */
-    background-color: #fff; /* Fondo blanco en los botones */
+    color: #fff; /* Texto negro en los botones */
+    background-color: #000; /* Fondo blanco en los botones */
     border: 1px solid #000; /* Borde negro en los botones */
     border-radius: 4px; /* Bordes redondeados en los botones */
     padding: 8px 16px; /* Espacio interno en los botones */
@@ -858,21 +858,36 @@ button {
 }
 
 button:hover {
-    background-color: #000; /* Cambiar color de fondo al pasar sobre los botones */
-    color: #fff; /* Cambiar color del texto al pasar sobre los botones */
+    background-color: rgb(30, 144, 255); /* Cambiar color de fondo al pasar sobre los botones */
+    color: #000; /* Cambiar color del texto al pasar sobre los botones */
 }
 
+/* Contenedor principal */
+.seguimiento-presupuesto {
+    display: flex;
+    justify-content: space-between; /* Distribuir los elementos en los extremos */
+}
 
+/* Estilos para el lado izquierdo */
 .presupuesto-container {
+    flex: 1; /* Que ocupe el espacio restante */
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+.presupuesto-box {
+    background-color: #282828;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    max-width: 600px;
+}
+
 .presupuesto-config,
+.resumen-presupuesto,
 .registro-transacciones {
     margin-bottom: 20px;
-
 }
 
 .presupuesto-config label,
@@ -881,19 +896,18 @@ button:hover {
 }
 
 .presupuesto-config input,
-.registro-transacciones input {
+.registro-transacciones input,
+.presupuesto-config select,
+.registro-transacciones select {
     margin-right: 10px;
+    color: #000; /* Color negro para el texto dentro de los inputs y selects */
 }
 
-.resumen-presupuesto {
-    margin-bottom: 20px;
-    text-align: left;
-    width: 100%;
-}
-
+/* Estilos para el lado derecho */
 .visualizacion-presupuesto {
-    width: 100%;
+    flex: 1; /* Que ocupe el espacio restante */
     max-width: 600px;
+    padding-left: 20px; /* Espacio adicional a la izquierda */
 }
 
 #grafico-presupuesto {
@@ -901,12 +915,6 @@ button:hover {
     height: 400px;
 }
 
-.presupuesto-box {
-    background-color: #282828;
-    margin-bottom: 20px;
-    padding: 20px;
-    border-radius: 8px; /* Añadimos bordes redondeados */
-}
 
 
 
