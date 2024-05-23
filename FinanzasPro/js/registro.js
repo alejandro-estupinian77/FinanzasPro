@@ -1,5 +1,4 @@
-var usuarios = [];
-
+var usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
 
 document.addEventListener('DOMContentLoaded', function() {
     const formulario = document.getElementById('formulario-registro');
@@ -18,52 +17,53 @@ document.addEventListener('DOMContentLoaded', function() {
             var contrasenaUsuario = document.getElementById('regContraUser').value;
             var confirmarContrasena = document.getElementById('regConfContraUser').value;
 
-            var usuario = {
-                'nombreUsuario':`${nombreUsuario.value}`,
-                'correoUsuario':`${correoUsuario.value}`,
-                'contraseña':`${contrasenaUsuario.value}`
-            }
-
-            usuarios.push(usuario);
-
-            localStorage.setItem('usuario', nombreUsuario);
             if (contrasenaUsuario !== confirmarContrasena) {
                 alert('Las contraseñas no coinciden.');
                 return;
             }
 
+            var usuario = {
+                'nombreUsuario': nombreUsuario,
+                'correoUsuario': correoUsuario,
+                'contraseña': contrasenaUsuario
+            }
+
+            usuarios.push(usuario);
+            localStorage.setItem('usuarios', JSON.stringify(usuarios));
+
             window.location.href = 'app.html';
         });
     }
 
-googleLoginButton.addEventListener('click', function() {
-     modal.style.display = 'block';
-});
+    googleLoginButton.addEventListener('click', function() {
+        modal.style.display = 'block';
+    });
 
-microsoftLoginButton.addEventListener('click', function() {
-    modal.style.display = 'block';
-});
+    microsoftLoginButton.addEventListener('click', function() {
+        modal.style.display = 'block';
+    });
 
-closeModal.addEventListener('click', function() {
-    modal.style.display = 'none';
-});
-
-window.addEventListener('click', function(event) {
-    if (event.target === modal) {
+    closeModal.addEventListener('click', function() {
         modal.style.display = 'none';
-    }
+    });
+
+    window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+
+    modalForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const modalNombre = document.getElementById('modalNombre').value;
+        const modalCorreo = document.getElementById('modalCorreo').value;
+        console.log('Modal Nombre:', modalNombre);
+        console.log('Modal Correo:', modalCorreo);
+
+        modal.style.display = 'none';
+        window.location.href = 'app.html'; // Redirige a app.html después de enviar el formulario modal
+    });
 });
 
-modalForm.addEventListener('submit', function(event) {
-    event.preventDefault();
-    const modalNombre = document.getElementById('modalNombre').value;
-    const modalCorreo = document.getElementById('modalCorreo').value;
-    console.log('Modal Nombre:', modalNombre);
-    console.log('Modal Correo:', modalCorreo);
-
-    modal.style.display = 'none';
-    window.location.href = 'app.html'; // Redirige a app.html después de enviar el formulario modal
-});
-});
 
 
