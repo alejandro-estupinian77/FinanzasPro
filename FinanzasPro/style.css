@@ -842,7 +842,51 @@ input[type="button"]:hover{
     margin-right: 10px; /* Espacio entre la imagen y el texto */
 }
 
+.seguimiento-presupuesto {
+    padding: 20px;
+    background-color: #100f0f;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(11, 11, 11, 0.1);
+    max-width: 800px;
+    margin: auto;
+}
 
+.presupuesto-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.presupuesto-config,
+.registro-transacciones {
+    margin-bottom: 20px;
+}
+
+.presupuesto-config label,
+.registro-transacciones label {
+    margin-right: 10px;
+}
+
+.presupuesto-config input,
+.registro-transacciones input {
+    margin-right: 10px;
+}
+
+.resumen-presupuesto {
+    margin-bottom: 20px;
+    text-align: left;
+    width: 100%;
+}
+
+.visualizacion-presupuesto {
+    width: 100%;
+    max-width: 600px;
+}
+
+#grafico-presupuesto {
+    width: 100%;
+    height: 400px;
+}
 
 
 
