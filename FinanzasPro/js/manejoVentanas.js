@@ -9,10 +9,13 @@ const contenidoIngresosPagos = document.getElementsByClassName('ingresos-pagos')
 const contenidoSeguimiento = document.getElementsByClassName('seguimiento-presupuesto')[0];
 const contenidoPlanificacion = document.getElementsByClassName('planificacion-reportes')[0];
 
+const tituloSeccion = document.getElementsByClassName('titulo-seccion')[0];
+
 
 botonRegistroPagos.addEventListener('click', function(e){
     e.preventDefault();
 
+    tituloSeccion.textContent = 'Registro de pagos';
     botonRegistroPagos.style.backgroundColor = 'rgb(30, 144, 255)';
     botonIngresosGastos.style.backgroundColor = '#121212';
     botonSeguimiento.style.backgroundColor = '#121212';
@@ -28,6 +31,7 @@ botonRegistroPagos.addEventListener('click', function(e){
 botonIngresosGastos.addEventListener('click', function(e){
     e.preventDefault();
 
+    tituloSeccion.textContent = "Ingresos y Gastos"
     botonIngresosGastos.style.backgroundColor = 'rgb(30, 144, 255)';
     botonRegistroPagos.style.backgroundColor = '#121212';
     botonSeguimiento.style.backgroundColor = '#121212';
@@ -42,6 +46,7 @@ botonIngresosGastos.addEventListener('click', function(e){
 botonSeguimiento.addEventListener('click', function(e){
     e.preventDefault();
     
+    tituloSeccion.textContent = "Planificación y seguimiento";
     botonIngresosGastos.style.backgroundColor = '#121212';
     botonRegistroPagos.style.backgroundColor = '#121212';
     botonSeguimiento.style.backgroundColor = 'rgb(30, 144, 255)';
@@ -56,6 +61,7 @@ botonSeguimiento.addEventListener('click', function(e){
 botonPlanificacion.addEventListener('click', function(e){
     e.preventDefault();
 
+    tituloSeccion.textContent = "Generación de reportes";
     botonIngresosGastos.style.backgroundColor = '#121212';
     botonRegistroPagos.style.backgroundColor = '#121212';
     botonSeguimiento.style.backgroundColor = '#121212';

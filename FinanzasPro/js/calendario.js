@@ -15,6 +15,7 @@ const contenedorPagosIndividuales = document.getElementsByClassName('contenedor-
 let events = {};
 var transacciones = [];
 
+const nombreUsuarioContenedor = document.getElementsByClassName('nombre-usuario')[0];
 
 //Inputs
 const descripcion = document.getElementById('descripcion');
@@ -139,6 +140,8 @@ function nextMonth() {
 document.addEventListener('DOMContentLoaded', function() {
     renderCalendar();
     verificarListaTransacciones();
+    cambiarNombre();
+
 
     document.getElementById('prev-month').addEventListener('click', previousMonth);
     document.getElementById('next-month').addEventListener('click', nextMonth);
@@ -195,8 +198,27 @@ function verificarListaTransacciones(){
 function alertaExportacion(){
     if(transacciones.length == 0){
         alert("No hay pagos para realizar la exportación");
+    }else{
+        const datosJSON = JSON.stringify(transacciones, null, 2);
+        const blob = new Blob([datosJSON], {type: 'application/json'});
+
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'transacciones.json';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
     }
 }
+
+function cambiarNombre(){
+    const nombre = localStorage.getItem('usuario');
+    nombreUsuarioContenedor.textContent = nombre;
+}
+
+
 
 
 
