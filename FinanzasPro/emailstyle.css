@@ -1,0 +1,167 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #282828;
+    color: white; /* Color del texto en el body */
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #282828;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    color: white; /* Color del texto en el header */
+}
+
+.logo img {
+    height: 40px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.search-bar input {
+    padding: 5px;
+    font-size: 16px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: black; /* Color del texto del input */
+}
+
+.search-bar button {
+    padding: 6px 10px;
+    margin-left: 5px;
+    background-color: #0a3e81;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    color: white; /* Color del texto en la información del usuario */
+}
+
+.user-info img {
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.content {
+    display: flex;
+    flex-grow: 1;
+    height: calc(100vh - 61px); /* Altura total menos la altura del header */
+}
+
+.sidebar {
+    background-color: #282828;
+    width: 250px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-right: 1px solid #282828;
+    height: 100%;
+    color: white; /* Color del texto en la barra lateral */
+}
+
+.sidebar button {
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    background-color: #0a3e81;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+.sidebar ul li {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+
+.sidebar ul li:hover {
+    background-color: #282828;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: #000; /* Fondo negro para el contenido principal */
+    color: white; /* Color del texto en el contenido principal */
+}
+
+.email-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    color: white; /* Color del texto en el encabezado de la lista de correos */
+}
+
+.email-list {
+    display: flex;
+    flex-direction: column;
+    background-color: #000; /* Fondo negro para la lista de correos */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    flex-grow: 1;
+    color: white; /* Color del texto en la lista de correos */
+}
+
+.email-item {
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white; /* Color del texto en los elementos de correo */
+}
+
+.email-item:hover {
+    background-color: #282828;
+}
+
+.email-item strong {
+    margin-right: 10px;
+    color: white; /* Color del texto en el strong */
+}
+
+.email-item span {
+    color: #bbb; /* Color del texto en los spans */
+}
+
+
