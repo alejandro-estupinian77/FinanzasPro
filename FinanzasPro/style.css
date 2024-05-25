@@ -408,7 +408,7 @@ input[type="button"]:hover{
 .registro-pagos{
     padding: 30px;
     height: 100%;
-    display: grid;
+    display: none;
     grid-template-columns: 5fr 3fr;
     gap: 80px;
 }
@@ -859,21 +859,21 @@ button {
 
 button:hover {
     background-color: rgb(30, 144, 255); /* Cambiar color de fondo al pasar sobre los botones */
-    color: #000; /* Cambiar color del texto al pasar sobre los botones */
 }
 
 /* Contenedor principal */
 .seguimiento-presupuesto {
-    display: flex;
-    justify-content: space-between; /* Distribuir los elementos en los extremos */
+    display: none;
+    grid-template-columns: 1fr 1fr;
+    padding: 30px;
+    gap: 40px;
+    height: 100%;;
 }
 
 /* Estilos para el lado izquierdo */
 .presupuesto-container {
-    flex: 1; /* Que ocupe el espacio restante */
     display: flex;
-    flex-direction: column;
-    align-items: center;
+
 }
 
 .presupuesto-box {
@@ -913,6 +913,144 @@ button:hover {
 #grafico-presupuesto {
     width: 100%;
     height: 400px;
+}
+
+
+/*Planificación y seguimiento NUEVO*/
+.contenidoIzquierda-seguimiento{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.seguimiento-presupuesto .planificacion-mensual{
+    display: flex;
+    flex-direction: column;
+    background-color: #282828;
+    border-radius: 10px;
+    padding: 20px 30px;
+}
+
+.seguimiento-presupuesto .planificacion-mensual .encabezado-plan{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 50%;
+}
+
+.seguimiento-presupuesto .planificacion-mensual .encabezado-plan img{
+    height: 30px;
+    width: 30px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    filter: grayscale(100%) invert(100%)
+}
+
+.seguimiento-presupuesto .planificacion-mensual .encabezado-plan h3{
+    margin:0;
+}
+
+.seguimiento-presupuesto .planificacion-mensual .datos-planificacion{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.seguimiento-presupuesto .planificacion-mensual .datos-planificacion .campo{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.seguimiento-presupuesto .planificacion-mensual .datos-planificacion .campo input, select{
+    background-color: #121212;
+    border: none;
+    padding: 8px;
+    border-radius: 10px;
+}
+
+.seguimiento-presupuesto .planificacion-mensual .datos-planificacion .botones{
+    margin-bottom: 30px;
+    display: flex;
+    gap: 15px;
+}
+
+.contenidoDerecha-seguimiento{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    background-color: #282828;
+    padding: 20px 40px;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.contenidoDerecha-seguimiento .registro-transacciones{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#form-registro-transaccion{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#form-registro-transaccion .campo{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#form-registro-transaccion .botones{
+    width: 100%;
+}
+
+#form-registro-transaccion .campo input, select{
+    color:#fefefe;
+    background-color: #121212;
+    padding: 8px;
+    border: none;
+    border-radius: 10px;
+}
+
+.datos-almacenados{
+    display: flex;
+    flex-direction: column;
+    background-color: #282828;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.datos-almacenados img{
+    height: 20px;
+    width: 20px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    filter: grayscale(100%) invert(100%)
+}
+
+.datos-almacenados .encabezado-datos{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+.datos-almacenados .contenido{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.datos-almacenados .contenido .monto{
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 

@@ -54,7 +54,7 @@ botonSeguimiento.addEventListener('click', function(e){
 
     contenidoRegistroPagos.style.display = 'none';
     contenidoIngresosPagos.style.display = 'none';
-    contenidoSeguimiento.style.display = 'block';
+    contenidoSeguimiento.style.display = 'grid';
     contenidoPlanificacion.style.display = 'none';
 });
 
