@@ -11,10 +11,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jersey+25&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    
 </head>
 <body>
     <!--Modal agregar transacción-->
-
     <div id="event-modal" class="modal">
         <div class="contenido-modal">
             <h3>Datos de la transacción</h3>
@@ -48,7 +48,6 @@
     </div>
 
     <!--Modal detalles de transacción-->
-
     <div class="modal-detalles">
 
         <div class="contenido-modal-detalles">
@@ -92,12 +91,32 @@
                     
                 </p>
             </div>
-
             <button class="cerrar-detalles">Cerrar</button>
-
         </div>
+    </div>
 
+    <!--Modal Gráficos-->
 
+    <div class="modal-graficos">
+        <div class="contenido-modal-graficos">
+            <div class="encabezado-graficos">
+                <h3 class="titulo-grafico">
+                    Presupuestos Mensuales
+                </h3>
+                <button class="boton-grafico cerrar-modal-grafico"><img src="images/9110796_x_icon.png" alt=""></button>
+            </div>
+    
+            <div class="graficos">
+                <button class="boton-grafico anterior">
+                    <img src="images/211689_left_arrow_icon.png" alt="">
+                </button>
+                
+                <canvas id="grafica"></canvas>
+                <button class="boton-grafico siguiente">
+                    <img src="images/211607_right_arrow_icon.png" alt="">
+                </button> 
+            </div>
+        </div>
     </div>
 
     <!--CONTENIDO PAGINA-->
@@ -274,16 +293,91 @@
                 
             </div>                 
 
-            <div class="planificacion-reportes">
+            <div class="generacion-reportes">
+
+                <div class="contenidoIzquierda-reportes">
+                    
+                    <div class="encabezado-reportes">
+                        <img src="images/2638345_arrow_down_download_sign_icon.png" alt="">
+                        <h3>Descarga tus reportes</h3>
+                    </div>
+
+                    <div class="contenido-reportes">
+                        <div class="reportes">
+                            <div class="reporte">
+                                <div class="contenido-texto">
+                                    <img src="images/5975175_coronavirus_report_clipboard_medical_virus_icon.png" alt="">
+                                    <p>
+                                        Reporte No.1 Presupuestos Mensuales
+                                    </p>
+                                </div>
+
+                                <div class="botones">
+                                    <button >Descargar</button>
+                                    <button>Vista Previa</button>
+                                </div>
+                            </div>
+                            
+                            <div class="reporte">
+                                <div class="contenido-texto">
+                                    <img src="images/5975175_coronavirus_report_clipboard_medical_virus_icon.png" alt="">
+                                    <p>
+                                        Reporte No.2 Gastos Mensuales
+                                    </p>
+                                </div>
+
+                                <div class="botones">
+                                    <button onclick="mostrarDatos()">Descargar</button>
+                                    <button>Vista Previa</button>
+                                </div>
+
+                            </div>
+
+                            <div class="reporte">
+                                <div class="contenido-texto">
+                                    <img src="images/5975175_coronavirus_report_clipboard_medical_virus_icon.png" alt="">
+                                    <p>
+                                        Reporte No.3 Ingresos Mensuales
+                                    </p>
+                                </div>
+
+                                <div class="botones">
+                                    <button>Descargar</button>
+                                    <button>Vista Previa</button>
+                                </div>
+                            </div>
+
+                            <div class="reporte">
+                                <div class="contenido-texto">
+                                    <img src="images/5975175_coronavirus_report_clipboard_medical_virus_icon.png" alt="">
+                                    <p>
+                                        Reporte No.4 Gastos e Ingresos por categoria
+                                    </p>
+                                </div>
+
+                                <div class="botones">
+                                    <button>Descargar</button>
+                                    <button>Vista Previa</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="contenidoDerecha-reportes">
+
+                </div>
 
             </div>
         </div>
     </div>
     
+    <script type="module" src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
     <script src="js/manejoVentanas.js"></script>
     <script src="js/calendario.js"></script>
     <script src="js/detallesTrans.js"></script>
     <script src="js/seguimientoPresupuesto.js"></script>
-
+    <script src="js/generacionReportes.js"></script>
 </body>
 </html>

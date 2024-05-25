@@ -23,6 +23,12 @@ const categoriaTrans = document.getElementById('categoria-trans');
 const montoTransaccion = document.getElementById('monto-trans'); 
 var imagenEstadoMonto = document.getElementsByClassName('imagen-estado-monto')[0];
 
+const canvaGrafico = document.getElementById('grafica').getContext('2d');
+const botonMostrarGraficos = document.getElementsByClassName('visualizar-graficos')[0];
+const botonCerrarModal = document.getElementsByClassName('cerrar-modal-grafico')[0];
+const modalGraficos = document.getElementsByClassName('modal-graficos')[0];
+
+
 let presupuestoMensual = 0;
 let totalGastos = 0;
 let totalIngresos = 0;
@@ -38,39 +44,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-function inicializarGrafico() {
-    chartData = {
-        labels: ['Presupuesto Mensual', 'Gastos Totales', 'Ingresos Totales'],
-        datasets: [{
-            label: 'Resumen del Presupuesto',
-            backgroundColor: ['#ff6384', '#36a2eb', '#cc65fe'],
-            data: [presupuestoMensual, totalGastos, totalIngresos]
-        }]
-    };
-
-    ctx.fillStyle = chartData.datasets[0].backgroundColor[0];
-    ctx.fillRect(0, 0, 200, chartData.datasets[0].data[0] * 2);
-    
-    ctx.fillStyle = chartData.datasets[0].backgroundColor[1];
-    ctx.fillRect(200, 0, 200, chartData.datasets[0].data[1] * 2);
-    
-    ctx.fillStyle = chartData.datasets[0].backgroundColor[2];
-    ctx.fillRect(400, 0, 200, chartData.datasets[0].data[2] * 2);
-}
-
-function actualizarGrafico() {
-    ctx.clearRect(0, 0, 600, 400);
-    
-    chartData.datasets[0].data = [presupuestoMensual, totalGastos, totalIngresos];
-    
-    ctx.fillStyle = chartData.datasets[0].backgroundColor[0];
-    ctx.fillRect(0, 0, 200, chartData.datasets[0].data[0] * 2);
-    
-    ctx.fillStyle = chartData.datasets[0].backgroundColor[1];
-    ctx.fillRect(200, 0, 200, chartData.datasets[0].data[1] * 2);
-    
-    ctx.fillStyle = chartData.datasets[0].backgroundColor[2];
-    ctx.fillRect(400, 0, 200, chartData.datasets[0].data[2] * 2);
+function generarGraficos(){
+    var chart = new Chart(canvaGrafico,{
+        type:'bar',
+        data:{
+            labels:['cerveza', 'vino', 'tequila'],
+            datasets:[
+                {
+                    label: 'Bebidas',
+                    backgroundColor: "rgb(30, 144, 255)",
+                    data: [12, 10, 5]
+                }
+            ]
+        }
+    });
 }
 
 function establecerPresupuesto() {
@@ -82,6 +69,7 @@ function registrarTransaccion() {
     const tipoTransValor = tipoTrans.value;
     const categoriaTransValor = categoriaTrans.value;
     const montoTransaccionValor = montoTransaccion.value;
+    var montoTransaccionValorNum = parseFloat(montoTransaccionValor) || 0;
 
     transaccion = {
         'mes':`${mesTrans}`,
@@ -91,47 +79,55 @@ function registrarTransaccion() {
     }
 
     registroTrans.push(transaccion);
-
-    montoTransaccionValorNum = parseFloat(montoTransaccionValor) || 0;
-
-    agregarPlanificacion(montoTransaccionValorNum);
-    console.log(registroTrans);
-    console.log(planificacionPresupuesto);
-    console.log(montoTransaccionValorNum);
+    actualizarRegistros();
+    actualizarMonto(montoTransaccionValorNum, mesTrans, tipoTransValor);
 }
 
-function agregarPlanificacion(montoTrans = 0) {
+function agregarPlanificacion() {
     const mes = selectMes.value;
     const presupuestomMes = presupMesInput.value;
     presupuestoMensual = parseFloat(presupuestomMes) || 0;
-    console.log(tipoTrans.value);
 
-    if (tipoTrans.value === "ingreso"){
+    planificacionPresupuesto.forEach(planificacion =>{
 
-        planificacionPresupuesto.forEach(planificacion =>{
+        if (mes.toLowerCase() === planificacion.mes){
+            planificacion.presupuesto = presupuestoMensual;
+        }
+    });
+    textoMonto.textContent = `Q${presupuestoMensual}`;
+    imagenEstadoMonto.src = 'images/arrows.png';
 
-            if (mes.toLowerCase() === planificacion.mes){
-                planificacion.presupuesto = `${presupuestoMensual + montoTrans}`;
+    actualizarPlanificacion();
+}
+
+function actualizarMonto(montoTrans = 0, mes, tipo){
+
+    planificacionPresupuesto.forEach(planificacion =>{
+
+        if(mes.toLowerCase() == planificacion.mes){
+            
+            if(tipo.toLowerCase() == 'ingreso'){
+                planificacion.presupuesto += montoTrans;
+                textoMonto.textContent = `Q${planificacion.presupuesto}`;
+                imagenEstadoMonto.src = 'images/arrows.png';
+
+            }else{
+                planificacion.presupuesto -= montoTrans;
+                textoMonto.textContent = `Q${planificacion.presupuesto}`;
+                imagenEstadoMonto.src = 'images/arrow.png';
+                
             }
-        });
+        }
+    });
 
-        textoMonto.textContent = `Q${presupuestoMensual + montoTrans}`;
-        imagenEstadoMonto.src = 'images/arrows.png';   
-        presupuestomMes.value = 0;
-    }else{
+}
 
-        planificacionPresupuesto.forEach(planificacion =>{
+function actualizarPlanificacion(){
+    localStorage.setItem('planificacionPresupuesto', JSON.stringify(planificacionPresupuesto));
+}
 
-            if (mes.toLowerCase() === planificacion.mes){
-                planificacion.presupuesto = `${presupuestoMensual - montoTrans}`;
-            }
-        });
-
-        textoMonto.textContent = `Q${presupuestoMensual - montoTrans}`;
-        imagenEstadoMonto.src = 'images/arrow.png';   
-        presupuestomMes.value = 0;
-    }
-    
+function actualizarRegistros(){
+    localStorage.setItem('registroTrans', JSON.stringify(registroTrans));
 }
 
 function descagarHistorialTrans(){
@@ -158,6 +154,20 @@ document.getElementById('mes-presupuesto').addEventListener('change', function()
     textoMonto.textContent = `Q${presupuestoMes}`;
 
 })
+
+botonMostrarGraficos.addEventListener('click', function(e){
+    e.preventDefault();
+    modalGraficos.style.display = 'flex';
+    generarGraficos();
+})
+
+botonCerrarModal.addEventListener('click', function(e){
+    e.preventDefault();
+    modalGraficos.style.display = 'none';
+})
+
+
+
 
 
 

@@ -7,7 +7,7 @@ const botonPlanificacion = document.getElementById('boton-planificacion');
 const contenidoRegistroPagos = document.getElementsByClassName('registro-pagos')[0];
 const contenidoIngresosPagos = document.getElementsByClassName('ingresos-pagos')[0];
 const contenidoSeguimiento = document.getElementsByClassName('seguimiento-presupuesto')[0];
-const contenidoPlanificacion = document.getElementsByClassName('planificacion-reportes')[0];
+const contenidoPlanificacion = document.getElementsByClassName('generacion-reportes')[0];
 
 const tituloSeccion = document.getElementsByClassName('titulo-seccion')[0];
 
