@@ -282,7 +282,13 @@
 
                             <div class="campo">
                                 <label for="">Categoria</label>
-                                <input type="text" id="categoria-trans">
+                                <select name="" id="categoria-trans">
+                                    <option value="estudios">Estudios</option>
+                                    <option value="inversion">Inversion</option>
+                                    <option value="comida">Comida</option>
+                                    <option value="servicios">Servicios</option>
+                                    <option value="otros">Otros</option>
+                                </select>
                             </div>
 
                             <div class="campo">
@@ -323,8 +329,8 @@
                                 </div>
 
                                 <div class="botones">
-                                    <button >Descargar</button>
-                                    <button>Vista Previa</button>
+                                    <button class="boton-descarga reporte1" >Descargar</button>
+                                    <button class="boton-vistaprevia reporte1">Vista Previa</button>
                                 </div>
                             </div>
                             
@@ -332,13 +338,13 @@
                                 <div class="contenido-texto">
                                     <img src="images/5975175_coronavirus_report_clipboard_medical_virus_icon.png" alt="">
                                     <p>
-                                        Reporte No.2 Gastos Mensuales
+                                        Reporte No.2 Ingresos Mensuales
                                     </p>
                                 </div>
 
                                 <div class="botones">
-                                    <button onclick="mostrarDatos()">Descargar</button>
-                                    <button>Vista Previa</button>
+                                    <button class="boton-descarga reporte2">Descargar</button>
+                                    <button class="boton-vistaprevia reporte2">Vista Previa</button>
                                 </div>
 
                             </div>
@@ -347,13 +353,13 @@
                                 <div class="contenido-texto">
                                     <img src="images/5975175_coronavirus_report_clipboard_medical_virus_icon.png" alt="">
                                     <p>
-                                        Reporte No.3 Ingresos Mensuales
+                                        Reporte No.3 Gastos Mensuales
                                     </p>
                                 </div>
 
                                 <div class="botones">
-                                    <button>Descargar</button>
-                                    <button>Vista Previa</button>
+                                    <button class="boton-descarga reporte3" >Descargar</button>
+                                    <button class="boton-vistaprevia reporte3">Vista Previa</button>
                                 </div>
                             </div>
 
@@ -366,8 +372,8 @@
                                 </div>
 
                                 <div class="botones">
-                                    <button>Descargar</button>
-                                    <button>Vista Previa</button>
+                                    <button class="boton-descarga reporte4">Descargar</button>
+                                    <button class="boton-vistaprevia reporte4">Vista Previa</button>
                                 </div>
                             </div>
                         </div>
@@ -382,7 +388,15 @@
             </div>
         </div>
     </div>
-    
+
+    <!--Canvas gráficos para PDFs-->
+    <canvas class="grafico-pdfs" id="grafico-presupuesto" width="400" height="200"></canvas>
+    <canvas class="grafico-pdfs" id="grafico-ingresosmensuales" width="400" height="200"></canvas>
+    <canvas class="grafico-pdfs" id="grafico-gastosmensuales" width="400" height="200"></canvas>
+    <canvas class="grafico-pdfs" id="grafico-ingresosgastoscategoria" width="400" height="200"></canvas>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script type="module" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
     <script src="js/manejoVentanas.js"></script>
     <script src="js/calendario.js"></script>
