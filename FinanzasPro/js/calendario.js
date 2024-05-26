@@ -17,46 +17,51 @@ var transacciones = [];
 
 const nombreUsuarioContenedor = document.getElementsByClassName('nombre-usuario')[0];
 
-//Inputs
+// Inputs
 const descripcion = document.getElementById('descripcion');
 const categoria = document.getElementById('categoria');
 const monto = document.getElementById('monto');
 const hora = document.getElementById('hora');
 
-//Cerrar modal con botón
+// Cerrar modal con botón
 botonCerrar.addEventListener('click', function(e) {
     e.preventDefault();
     cerrarModal();
 });
 
+// Agregar transacción y generar correo
 botonAgregar.addEventListener('click', function(e){
     e.preventDefault();
     
     let transaccion = {
-        "descripcion":`${descripcion.value}`,
-        "categoria":`${categoria.value}`,
-        "monto":`${monto.value}`,
-        "hora":`${hora.value}`
-    }
-
+        "descripcion": descripcion.value,
+        "categoria": categoria.value,
+        "monto": monto.value,
+        "hora": hora.value
+    };
     
     transacciones.push(transaccion);
     
     console.log(transacciones);
 
     const contenidoTrans = document.createElement('p');
-    contenidoTrans.textContent = `${descripcion.value}`;
+    contenidoTrans.textContent = descripcion.value;
     contenidoTrans.classList.add('etiqueta');
   
     diaSeleccionado.appendChild(contenidoTrans);
     verificarListaTransacciones();
     cerrarModal();
 
+    // Enviar mensaje a correo.js
+    window.postMessage({
+        type: 'new-transaction',
+        transaction: transaccion
+    }, '*');
 });
 
-//Abrir y cerrar modal
+// Abrir y cerrar modal
 function abrirModal() {
-    //Reestablecer todos los campos a vacío
+    // Reestablecer todos los campos a vacío
     descripcion.value = '';
     categoria.value = '';
     monto.value = '';
@@ -135,59 +140,55 @@ function nextMonth() {
     renderCalendar();
 }
 
-
 // Inicializar el calendario al cargar la página
 document.addEventListener('DOMContentLoaded', function() {
     renderCalendar();
     verificarListaTransacciones();
     cambiarNombre();
 
-
     document.getElementById('prev-month').addEventListener('click', previousMonth);
     document.getElementById('next-month').addEventListener('click', nextMonth);
 });
 
-//Historial de pagos 
+// Historial de pagos 
 function verificarListaTransacciones(){
-    if (transacciones == 0){
+    if (transacciones.length === 0){
         noPagos.textContent = "No hay pagos registrados";    
-    }else{
+    } else {
         noPagos.style.display = 'none';
         contenedorPagosIndividuales.innerHTML = '';
         var i = 0;
-        transacciones.forEach(transaccion =>{
-            
+        transacciones.forEach(transaccion => {
             const contenedorTrans = document.createElement('div');
             const imagenTrans = document.createElement('img');
             const textoTrans = document.createElement('h4');
             const botonTrans = document.createElement('button');
             const contenedorTexto = document.createElement('div');
 
-            //Atributos del contenedor Texto
+            // Atributos del contenedor Texto
             contenedorTexto.classList.add('contenido');
             contenedorTexto.appendChild(imagenTrans);
             contenedorTexto.appendChild(textoTrans);
 
-            //Atributos del contenedor
+            // Atributos del contenedor
             contenedorTrans.classList.add('pago');
 
-            //Atributos de la imagen
-            imagenTrans.src = "images/172506_money_icon.png"
+            // Atributos de la imagen
+            imagenTrans.src = "images/172506_money_icon.png";
 
-            //Atributos del h5
+            // Atributos del h5
             textoTrans.textContent = transaccion.descripcion;
 
-            //Atributos botón
+            // Atributos botón
             botonTrans.textContent = "Detalles";
-            botonTrans.classList.add('boton-detalles')
+            botonTrans.classList.add('boton-detalles');
             botonTrans.id = `${i}`;
 
-            //Agregar elementos al div
+            // Agregar elementos al div
             contenedorTrans.appendChild(contenedorTexto);
             contenedorTrans.appendChild(botonTrans);
 
             contenedorPagosIndividuales.appendChild(contenedorTrans);
-            
             contenedorPagos.appendChild(contenedorPagosIndividuales);
 
             i++;
@@ -196,9 +197,9 @@ function verificarListaTransacciones(){
 }
 
 function alertaExportacion(){
-    if(transacciones.length == 0){
+    if(transacciones.length === 0){
         alert("No hay pagos para realizar la exportación");
-    }else{
+    } else {
         const datosJSON = JSON.stringify(transacciones, null, 2);
         const blob = new Blob([datosJSON], {type: 'application/json'});
 
@@ -217,6 +218,8 @@ function cambiarNombre(){
     const nombre = localStorage.getItem('usuario');
     nombreUsuarioContenedor.textContent = nombre;
 }
+
+
 
 
 

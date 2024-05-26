@@ -1,30 +1,43 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Lógica para el botón de redacción
-    const composeButton = document.getElementById('composeButton');
-    composeButton.addEventListener('click', () => {
-        alert('Redactar nuevo correo');
+    const emailList = document.querySelector('.email-list');
+    const emails = []; // Aquí se almacenan los correos
+
+    window.addEventListener('message', (event) => {
+        if (event.data.type === 'new-transaction') {
+            const transaccion = event.data.transaction;
+            enviarCorreoRecordatorio(transaccion);
+        }
     });
 
-    // Simular la carga de correos
-    const emailList = document.querySelector('.email-list');
-    const emails = [
-        { subject: 'Bienvenido a FinanzasPro', sender: 'soporte@finanzaspro.com', date: '2024-05-25' },
-        { subject: 'Actualización de cuenta', sender: 'no-reply@finanzaspro.com', date: '2024-05-24' },
-        { subject: 'Nueva funcionalidad', sender: 'info@finanzaspro.com', date: '2024-05-23' },
-        { subject: 'Promoción especial', sender: 'promociones@finanzaspro.com', date: '2024-05-22' },
-        { subject: 'Notificación de seguridad', sender: 'seguridad@finanzaspro.com', date: '2024-05-21' }
-    ];
+    function enviarCorreoRecordatorio(transaccion) {
+        const mensaje = `
+            Estimado usuario,
+            Se le recuerda que el pago de ${transaccion.descripcion} correspondiente a ${transaccion.categoria},
+            por el monto de ${transaccion.monto} vence a las ${transaccion.hora}. Por favor, pague este monto.
+        `;
 
-    emails.forEach(email => {
+        const emailRecordatorio = {
+            subject: 'Recordatorio de Pago',
+            sender: 'noreply@finanzaspro.com',
+            date: new Date().toISOString().split('T')[0],
+            body: mensaje
+        };
+
+        emails.push(emailRecordatorio);
         const emailItem = document.createElement('div');
         emailItem.className = 'email-item';
         emailItem.innerHTML = `
-            <strong>${email.subject}</strong> 
-            <span>${email.sender}</span> 
-            <span style="margin-left:auto;">${email.date}</span>
+            <strong>${emailRecordatorio.subject}</strong> 
+            <span>${emailRecordatorio.sender}</span> 
+            <span style="margin-left:auto;">${emailRecordatorio.date}</span>
         `;
         emailList.appendChild(emailItem);
-    });
+    }
 });
+
+
+
+
+
 
 

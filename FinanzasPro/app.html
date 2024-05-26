@@ -18,105 +18,54 @@
     <div id="event-modal" class="modal">
         <div class="contenido-modal">
             <h3>Datos de la transacción</h3>
-
             <div class="campo">
                 <label for="">Descripción</label>
                 <textarea name="" id="descripcion"></textarea>
             </div>
-
             <div class="campo">
                 <label for="">Categoria</label>
                 <input id="categoria" type="text">
             </div>
-
             <div class="campo">
                 <label for="">Monto</label>
                 <input id="monto" type="number">
             </div>
-
             <div class="campo">
                 <label for="">Hora</label>
                 <input id="hora" type="time">
             </div>
-
             <div class="botones">
                 <button id="boton-agregar" class="boton-desc">Agregar transacción</button>
                 <button class="boton-cerrar">Cerrar</button>
             </div>
-            
         </div>
     </div>
 
     <!--Modal detalles de transacción-->
     <div class="modal-detalles">
-
         <div class="contenido-modal-detalles">
-
-            <h3>
-                Detalles de la transacción
-            </h3>
-
+            <h3>Detalles de la transacción</h3>
             <div class="campo-desc">
-                <h4>
-                    Descripción:
-                </h4>
-                <p class="descripcion-detalles">
-
-                </p>
+                <h4>Descripción:</h4>
+                <p class="descripcion-detalles"></p>
             </div>
-
             <div class="campo-desc">
-                <h4>
-                    Categoría:
-                </h4>
-                <p class="categoria-detalles">
-                    
-                </p>
+                <h4>Categoría:</h4>
+                <p class="categoria-detalles"></p>
             </div>
-
             <div class="campo-desc">
-                <h4>
-                    Monto:
-                </h4>
-                <p class="monto-detalles">
-                    
-                </p>
+                <h4>Monto:</h4>
+                <p class="monto-detalles"></p>
             </div>
-
             <div class="campo-desc">
-                <h4>
-                    Hora de pago:
-                </h4>
-                <p class="hora-detalles">
-                    
-                </p>
+                <h4>Hora de pago:</h4>
+                <p class="hora-detalles"></p>
             </div>
             <button class="cerrar-detalles">Cerrar</button>
-        </div>
-    </div>
 
-    <!--Modal Gráficos-->
-
-    <div class="modal-graficos">
-        <div class="contenido-modal-graficos">
-            <div class="encabezado-graficos">
-                <h3 class="titulo-grafico">
-                    Presupuestos Mensuales
-                </h3>
-                <button class="boton-grafico cerrar-modal-grafico"><img src="images/9110796_x_icon.png" alt=""></button>
-            </div>
-    
-            <div class="graficos">
-                <button class="boton-grafico anterior">
-                    <img src="images/211689_left_arrow_icon.png" alt="">
-                </button>
-                
-                <canvas id="grafica"></canvas>
-                <button class="boton-grafico siguiente">
-                    <img src="images/211607_right_arrow_icon.png" alt="">
-                </button> 
-            </div>
         </div>
+
+
     </div>
 
     <!--CONTENIDO PAGINA-->
@@ -130,11 +79,9 @@
             </nav>
         </div>
 
-
         <div class="contenido">
             <div class="encabezado-app">
                 <h2 class="titulo-seccion">¡Bienvenido a FinanzasPro!</h2>
-
                 <div class="barra-usuario">
                     <img src="images/8665306_circle_user_icon.png" alt="">
                     <h4 class="nombre-usuario"></h4>
@@ -144,20 +91,17 @@
                     <button id="redirectButton">
                         <img src="images/7853741_logout_kashifarif_exit_out_close_icon.png" alt="">
                     </button>
-                    
                     <script>
                         // Espera a que el DOM esté completamente cargado
                         document.addEventListener('DOMContentLoaded', (event) => {
                             // Selecciona el botón por su ID
                             const redirectButton = document.getElementById('redirectButton');
                             const correoButton = document.getElementById('correoButton');
-                            
                             // Añade un event listener para el evento de clic del botón de logout
                             redirectButton.addEventListener('click', () => {
                                 // Redirige a "inicio.html"
                                 window.location.href = 'inicio.html';
                             });
-
                             // Añade un event listener para el evento de clic del botón de correo
                             correoButton.addEventListener('click', () => {
                                 // Redirige a "correo.html"
@@ -179,25 +123,19 @@
                         <div class="calendar-body" id="calendar-days"></div>
                     </div>
                 </div>
-               
                 <div class="historial-pagos">
                     <div class="encabezado-pagos">
                         <img src="images/299110_check_sign_icon.png" alt="">
                         <h4>Historial de pagos</h4>
                     </div>
-                    
                     <div class="pagos">
-
-                        <div class="contenedor-pagos">
-
-                        </div>
-
+                        <div class="contenedor-pagos"></div>
                         <p class="noPagos"></p>
-                
                         <button class="exportar-pagos" onclick="alertaExportacion()">Exportar historial</button>
-                    </div>                    
+                    </div>
                 </div>
             </div>
+        </div>
 
             <div class="ingresos-pagos">
 
