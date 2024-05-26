@@ -492,12 +492,10 @@ function actualizarMonto(montoTrans = 0, mes, tipo){
 
 function actualizarPlanificacion(){
     localStorage.setItem('planificacionPresupuesto', JSON.stringify(planificacionPresupuesto));
-    console.log('actualizando plans')
 }
 
 function actualizarRegistros(){
     localStorage.setItem('registroTrans', JSON.stringify(registroTrans));
-    console.log('actualizando regs');
 }
 
 function descagarHistorialTrans(){
