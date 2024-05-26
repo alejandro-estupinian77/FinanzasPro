@@ -1,6 +1,23 @@
-var usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-
 document.addEventListener('DOMContentLoaded', function() {
+    // Obtener usuarios del almacenamiento local
+    var usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+    
+    // Obtener el último usuario registrado
+    var ultimoUsuario = usuarios[usuarios.length - 1];
+    
+    // Verificar si hay un usuario registrado
+    if (ultimoUsuario) {
+        // Obtener el elemento donde quieres mostrar el nombre de usuario
+        var nombreUsuarioElemento = document.querySelector('.nombre-usuario');
+        
+        // Verificar si el elemento existe antes de intentar modificar su contenido
+        if (nombreUsuarioElemento) {
+            // Mostrar el nombre de usuario en el elemento correspondiente
+            nombreUsuarioElemento.textContent = ultimoUsuario.nombreUsuario;
+        }
+    }
+
+    // Agregar event listener para el formulario de registro
     const formulario = document.getElementById('formulario-registro');
     const modal = document.getElementById('modal');
     const modalForm = document.getElementById('modal-form');
@@ -64,6 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
         window.location.href = 'app.html'; // Redirige a app.html después de enviar el formulario modal
     });
 });
+
 
 
 
