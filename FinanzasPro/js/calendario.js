@@ -45,7 +45,7 @@ botonAgregar.addEventListener('click', function(e){
     console.log(transacciones);
 
     const contenidoTrans = document.createElement('p');
-    contenidoTrans.textContent = descripcion.value;
+    contenidoTrans.textContent = `${descripcion.value}`;
     contenidoTrans.classList.add('etiqueta');
   
     diaSeleccionado.appendChild(contenidoTrans);
@@ -177,7 +177,7 @@ function verificarListaTransacciones(){
             imagenTrans.src = "images/172506_money_icon.png";
 
             // Atributos del h5
-            textoTrans.textContent = transaccion.descripcion;
+            textoTrans.textContent = `${transaccion.categoria}: ${transaccion.descripcion}`;
 
             // Atributos botón
             botonTrans.textContent = "Detalles";
@@ -218,6 +218,7 @@ function cambiarNombre(){
     const nombre = localStorage.getItem('usuario');
     nombreUsuarioContenedor.textContent = nombre;
 }
+
 
 
 
