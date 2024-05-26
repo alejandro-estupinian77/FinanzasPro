@@ -30,27 +30,29 @@ botonCerrar.addEventListener('click', function(e) {
 });
 
 // Agregar transacción y generar correo
-botonAgregar.addEventListener('click', function(e){
+botonAgregar.addEventListener('click', function(e) {
     e.preventDefault();
-    
+
     let transaccion = {
         "descripcion": descripcion.value,
         "categoria": categoria.value,
         "monto": monto.value,
         "hora": hora.value
     };
-    
+
     transacciones.push(transaccion);
-    
     console.log(transacciones);
 
     const contenidoTrans = document.createElement('p');
     contenidoTrans.textContent = `${descripcion.value}`;
     contenidoTrans.classList.add('etiqueta');
-  
+
     diaSeleccionado.appendChild(contenidoTrans);
     verificarListaTransacciones();
     cerrarModal();
+
+    // Guardar en localStorage
+    localStorage.setItem('transacciones', JSON.stringify(transacciones));
 
     // Enviar mensaje a correo.js
     window.postMessage({
@@ -58,6 +60,7 @@ botonAgregar.addEventListener('click', function(e){
         transaction: transaccion
     }, '*');
 });
+
 
 // Abrir y cerrar modal
 function abrirModal() {
