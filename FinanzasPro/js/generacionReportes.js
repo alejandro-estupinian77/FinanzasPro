@@ -15,7 +15,6 @@ var graficoCategoria;
 document.addEventListener('DOMContentLoaded', function(){
 
     const botonesDescarga = document.querySelectorAll('.boton-descarga');
-    const botonVistaPrevia = document.querySelectorAll('.boton-vistaprevia');
 
     console.log(botonesDescarga);
 

@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const microsoftLoginButton = document.getElementById('microsoft-login');
 
     if (formulario) {
-        formulario.addEventListener('submit', function(event) {
+        formulario.addEventListener('submit', async function(event) {
             event.preventDefault();
 
             var nombreUsuario = document.getElementById('regNombreUser').value;
@@ -39,10 +39,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
+            const contrasenaUsuarioEncript = await bcrypt.hash(contrasenaUsuario, 10);
+
             var usuario = {
                 'nombreUsuario': nombreUsuario,
                 'correoUsuario': correoUsuario,
-                'contraseña': contrasenaUsuario
+                'contraseña': contrasenaUsuarioEncript
             }
 
             usuarios.push(usuario);
