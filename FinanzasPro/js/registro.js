@@ -39,12 +39,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            var hashContra = CryptoJs.SHA256(contrasenaUsuario).toString();
+            async function hashContra(contrasena) {
+                const encoder = new TextEncoder();
+                const data = encoder.encode(contrasena);
+                const hash = await crypto.subtle.digest('SHA-256', data);
+                return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('');
+            }
 
             var usuario = {
                 'nombreUsuario': nombreUsuario,
                 'correoUsuario': correoUsuario,
-                'contraseña': hashContra
+                'contraseña': hashContra()
             }
 
             usuarios.push(usuario);
